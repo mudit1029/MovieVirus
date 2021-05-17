@@ -1,0 +1,83 @@
+{% extends "movies/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+
+	Movie Details
+
+{% endblock %}
+
+{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/details_movies.css' %}">
+
+	<script type="text/javascript">
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			fetch("https://api.themoviedb.org/3/movie/{{movie.imdbID}}?api_key={{movie.api}}")
+			.then(response => response.json())
+			.then(data => {
+				document.querySelector('#otitle').innerHTML = "Original Title :- " + data.title;
+				document.querySelector('#genres').innerHTML = "Genres :- " + data.genres[0].name + " , " + data.genres[1].name;
+				document.querySelector('#overview').innerHTML = "Short Story :- " + data.overview;
+				document.querySelector('#release').innerHTML = "Release Date :- " + data.release_date;
+				document.querySelector('#runtime').innerHTML = "Runtime :- " + data.runtime + " minutes";
+				document.querySelector('#rating').innerHTML = "Average Rating :- " + data.vote_average + " (By " + data.vote_count + " people)";
+			fetch(`https://api.themoviedb.org/3/movie/{{movie.imdbID}}/credits?api_key={{movie.api}}`)
+				.then(response => response.json())
+				.then(data => {
+					document.querySelector('#actors').innerHTML = "Actors :- " + data.cast[0].name + " , " + data.cast[1].name + " , " + data.cast[2].name;
+				});
+			});
+		});
+
+	</script>
+
+{% endblock %}
+
+{% block body %}
+
+	<div id="mainDiv">
+		<div id="posterDiv">
+			<img id="poster" src="https://image.tmdb.org/t/p/w500{{movie.poster}}">
+		</div>
+		<p id="title">{{ movie.title }}</p>
+		<p id="details">Movie Details</p>
+		<div id="info1">	
+			<p id="otitle"></p>
+			<p id="actors"></p>
+			<p id="release"></p>
+			<p id="runtime"></p>
+			<p id="languages">Languages :- {{ movie.languages }}</p>
+			<p id="genres"></p>
+			<p id="rating"></p>
+			<p id="size">Size :- {{ movie.size }}</p>
+		</div>
+		<p id="overview"></p>
+	</div>	
+
+	<div id="screenshots">
+		<h1 id="ss">Screenshots</h1>
+		<br>
+		<img class="ss1" src="{% static '' %}{{movie.screenshot1}}">
+		<img class="ss1" src="{% static '' %}{{movie.screenshot2}}">
+		<img class="ss1" src="{% static '' %}{{movie.screenshot3}}">
+		<img class="ss1" src="{% static '' %}{{movie.screenshot4}}">
+		<br><br>
+	</div>
+
+	<div id="links">
+		<h1 id="download">Download Links</h1>
+		<div id="innerLinks">
+			<div class="innerDiv">
+				<h3 class="source">Google Drive <a href="{{ movie.google }}"><button class="downloadBtn">Download</button></a></h3>
+			</div>	
+			<br>
+			<div class="innerDiv">
+				<h3 class="source">Mega <a href="{{ movie.mega }}"><button class="downloadBtn">Download</button></a></h3>
+			</div>
+		</div>	
+	</div>
+
+{% endblock %}

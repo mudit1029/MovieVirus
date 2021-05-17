@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome User</title>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index1.css' %}">
+</head>
+<body>
+	<div id="details">
+		<h1>User Details</h1>
+		<div id="link">
+			<p><a href="{% url 'users:edit' %}">Edit Details</a></p>
+			<p><a href="{% url 'users:logout' %}">Log Out</a></p>
+		</div>	
+		<div id="inner">
+			<div class="elements">
+				<h4>Username :</h4>
+				<p>{{ user.username }}</p>
+			</div>	
+			<div class="elements">
+				<h4>First Name :</h4>
+				<p>{{ user.first_name }}</p>
+			</div>	
+			<div class="elements">
+				<h4>Last Name :</h4>
+				<p>{{ user.last_name }}</p>
+			</div>	
+			<div class="elements">
+				<h4>Mobile Number :</h4>
+				<p>{{ user.number }}</p>
+			</div>	
+			<div class="elements">
+				<h4>Email ID :</h4>
+				<p>{{ user.email }}</p>
+			</div>	
+		</div>	
+	</div>	
+</body>
+</html>

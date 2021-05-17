@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/layout_movies.css' %}">
+	{% block head %} {% endblock %}
+</head>
+<body>
+
+	<div id="add">
+		{% if request.user.is_superuser %}
+			<a href="{% url 'movies:add' %}">Add Movies</a>
+		{% endif %}
+	</div>
+	<div id="login">
+		<a href="{% url 'users:login' %}">
+			<button id="loginBtn">
+				{% if user %}
+					Hello, {{user}}
+				{% else %}	
+					Login / Register
+				{% endif %}
+			</button>
+		</a>
+	</div>
+	<div style="text-align: left; margin-left: 20px;" id="imageDiv">
+		<a href="/"><img src="{% static 'images/logo.png' %}"></a>
+	</div>
+	<div id="search">
+		<form action="{% url 'movies:search' %}" method="get">
+			<input type="text" name="s" placeholder="Search Movies.....">
+			<button>Search</button>
+		</form>	
+	</div>
+	<nav>
+		<a class="main" href="/">Home</a>
+		<a class="main" href="{% url 'movies:bolly' %}">Bollywood Movies</a>
+		<div class="dropdown">
+			<a class="main" href="{% url 'movies:holly' %}">Hollywood Movies</a>
+			<div class="dropdown-content">
+				<a href="{% url 'movies:hollyDual' %}">Dual Audio (Hindi + English)</a>
+				<a href="{% url 'movies:hollySingle' %}">Single Audio (Hindi OR English)</a>
+			</div>
+		</div>		
+		<div class="dropdown">
+			<a class="main" href="{% url 'movies:animated' %}">Animated Movies</a>
+			<div class="dropdown-content">
+				<a href="{% url 'movies:animatedDual' %}">Dual Audio (Hindi + English)</a>
+				<a href="{% url 'movies:animatedSingle' %}">Single Audio (Hindi OR English)</a>
+			</div>
+		</div>
+		<a class="main" href="{% url 'movies:south' %}">South Movies</a>
+	</nav>
+	<br>
+
+	{% block body %}
+	{% endblock %}
+
+	<br>
+	<footer>
+		<div>
+			<h3 style="margin-bottom: -30px;">Movie Virus - Virus Of Entertainment</h3>
+			<div style="border-bottom: 2px solid white; width: 50%; margin-left: auto; margin-right: auto;"></div>
+			<h4 style="margin-top: 13px;">Copyright © 2021 - All Rights Reserved</h4>
+		</div>
+	</footer>
+</body>
+</html>

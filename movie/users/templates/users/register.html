@@ -1,0 +1,32 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register Here</title>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+</head>
+<body style="background-image: url({% static 'images/register_background.webp' %}); background-size: cover; background-position: center;">
+	<img id="dummy" src="{% static 'images/register.webp' %}">
+	<div id="mainBody"><br>
+		<a id="login" href="{% url 'users:login' %}">{{ login }}</a>
+		<br>
+		<div id="msg">
+			{% if "message" %}
+				{{ message }}
+			{% endif %}
+		</div>	
+		<h2 id="create">Create Account</h2>
+		<form action="{% url 'users:register' %}" method="post">
+			{% csrf_token %}
+			{{ form }}
+			<button>{{ button }}</button>
+		</form>
+		<br>
+		<a href="{% provider_login_url 'google' %}">
+			<img src="{% static 'images/google_sign_up.png' %}" style="height: 45px; width: 60%;">
+		</a>
+	</div>	
+</body>
+</html>

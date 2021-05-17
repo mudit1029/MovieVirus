@@ -1,0 +1,26 @@
+{% extends 'movies/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	Movie Virus - Virus Of Entertainment
+{% endblock %}
+
+{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index_movies1.css' %}">
+
+{% endblock %}
+
+{% block body %}
+
+	{% for movie in movies %}
+		<div id="movieDiv">
+			<a id="titleimg" href="{% url 'movies:details' movie.title %}">
+				<img id="movieImage" src="https://image.tmdb.org/t/p/w500{{movie.poster}}">
+				<h3>{{movie.title}}</h3>
+			</a>
+		</div>
+	{% endfor %}
+
+{% endblock %}

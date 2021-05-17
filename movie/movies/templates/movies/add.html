@@ -1,0 +1,68 @@
+{% extends 'movies/layout.html' %}
+
+{% load static %}
+
+{% block title %}
+	Add Movies
+{% endblock %}
+
+{% block head %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_movies.css' %}">
+	<script type="text/javascript">
+		
+		document.addEventListener('DOMContentLoaded', () => {
+			document.querySelector('#form').onsubmit = () => {
+				id = document.querySelector('#id').value;
+				api = document.querySelector('#api').value;
+				fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api}`)
+				.then(response => response.json())
+				.then(data => {
+					document.querySelector('#imdb').value = id;
+					document.querySelector('#token').value = api;
+					document.querySelector('#title').value = data.title;
+					document.querySelector('#image').value = data.poster_path;
+					document.querySelector('#poster').setAttribute("src", "https://image.tmdb.org/t/p/w500"+data.poster_path);
+				});
+				return false;
+			};
+		});
+
+	</script>
+
+{% endblock %}
+
+{% block body %}
+
+	<div id="message">
+		{% if message %}
+		 	<h1>{{message}}</h1>
+		{% endif %}
+	</div>		
+
+	<div id="form1">
+		<form id="form">
+			<h1 class="h1">Step 1</h1>
+			<input id="id" type="text" name="imdbid" placeholder="Enter IMDB ID">
+			<input id="api" type="text" name="api" placeholder="Enter Your TMDB API"><br>
+			<button>Fetch Info</button>
+		</form>
+	</div>	
+
+	<div id="form2">
+		<h1 class="h1">Step 2</h1>
+		<form action="{% url 'movies:add' %}" method="post">
+			{% csrf_token %}
+			<input id="imdb" type="text" name="imdbid" placeholder="Enter IMDB ID">
+			<input id="token" type="text" name="api" placeholder="Enter Your TMDB API">
+			<input id="title" type="text" name="title" placeholder="Movie Title">
+			<input id="image" type="text" name="image" placeholder="Poster URL"><br>
+			<button>Add Data To Database</button>
+		</form>
+	</div>	
+
+	<div id="posterDiv">
+		<img id="poster" src="">
+	</div>
+
+{% endblock %}

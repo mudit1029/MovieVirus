@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forgot Password</title>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico.png' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/forgot.css' %}">
+</head>
+<body style="background-image: url({% static 'images/forgot_background.webp' %}); background-size: cover;">
+	<a href="{% url 'users:index' %}">Login</a>
+	<img src="{% static 'images/forgot.jpg' %}"><br><br>
+	<div id="mainBody">
+		<p>
+			{% if "message" %}
+				{{ message }}
+			{% endif %}
+		</p>
+		<div id="titleForm">	
+			<h3>Forgot Password</h3>
+			<form action="{% url 'users:forgot' %}" method="post">
+				{% csrf_token %}
+				{{ form }}
+				<button style="background-image: url({% static 'images/login_background.webp' %}); background-size: cover; background-position: center;">{{ button }}</button>
+			</form>	
+		</div>	
+	</div>	
+</body>
+</html>

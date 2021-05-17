@@ -1,0 +1,36 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Login</title>
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico.png' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+<body style="background-image: url({% static 'images/login_background.webp' %}); background-size: cover;">
+	<div id="body">
+		<br>
+		<div id="msg">
+			{% if "message" %}
+				{{ message }}
+			{% endif %}	
+		</div>
+		<h1>USER LOGIN</h1>
+		<form action="{% url 'users:login' %}" method="post">
+			{% csrf_token %}
+			{{ form }}
+			<button>LOGIN</button>
+		</form>
+		<br>
+		<a href="{% provider_login_url 'google' %}">
+		<img src="{% static 'images/google_sign_in.png' %}" style="height: 45px; width: 40%;">
+		</a>
+		<br>
+		<br>
+		<a id="forgot" href="{% url 'users:forgot' %}">Forgot Password</a>
+		<br>
+		<br>
+		<p>Don't have an account <a href="{% url 'users:register' %}">Register </a>here.</p>
+	</div>	
+</body>
+</html>
