@@ -26,4 +26,4 @@ Steps to use the project :-
 13. Now go to the admin route ,i.e, http://127.0.0.1:8000/admin , and click on movies section to see the added movie.
 14. Click on the added movie and and set publish field to TRUE or click on publish checkbox and click on save.
 15. After saving head up to the base route , and you will see your uploaded movie their.
-16. For Register OTP you have to include your email id and password in the settings file. The columns for the same are EMAIL_HOST_USER and EMAIL_HOST_PASSWORD.
+16. For Register OTP you have to include your email id and password in the settings file. The columns for the same are EMAIL_HOST_USER (Line 33 Settings File) and EMAIL_HOST_PASSWORD (Line 34 Settings Filed).
