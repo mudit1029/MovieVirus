@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'webmanager201@gmail.com' 
-EMAIL_HOST_PASSWORD = 'app@3Manager'
+EMAIL_HOST_USER = '' 
+EMAIL_HOST_PASSWORD = ''
 
 
 # Application definition
