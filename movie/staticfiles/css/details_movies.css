@@ -1,0 +1,115 @@
+#mainDiv {
+	width: 100%;
+	background-color: #171717;
+	height: 600px;
+}
+
+#poster {
+	width: 300px;
+	padding-left: 37px;
+	padding-top: 37px;
+	height: 525px;
+}
+
+#info1 {
+	font-size: 20px;
+	color: white;
+	top: 65%;
+	left: 30%;
+	right: 40%;
+	position: absolute;
+	transition: transform(-50% , -50%)
+}
+
+#overview {
+	text-align: center;
+	font-size: 23px;
+	color: white;
+	top: 65%;
+	left: 70%;
+	right: 5%;
+	position: absolute;
+	transition: transform(-50% , -50%)
+}
+
+button {
+	cursor: pointer;
+}
+
+#title {
+	color: white;
+	font-size: 30px;
+	font-family: fantasy;
+	text-align: center;
+	top: 40%;
+	left: 30%;
+	right: 5%;
+	position: absolute;
+	transition: transform(-50% , -50%)
+}
+
+#details {
+	font-size: 26px;
+	font-family: cursive;
+	color: yellow;
+	text-align: center;
+	top: 55%;
+	left: 57%;
+	position: absolute;
+	transition: transform(-50% , -50%)
+}
+
+#screenshots , #links {
+	width: 70%;
+	margin-left: 15% ;
+	margin-top: 40px;
+	text-align: center;
+	border: 2px solid royalblue;
+}
+
+#ss , #download {
+	background-color: #171717;
+	color: white;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-bottom: 2px solid royalblue;
+}
+
+.ss1 {
+	width: 225px;
+	height: 340px;
+}
+
+#innerLinks {
+	text-align: left;
+}
+
+.downloadBtn {
+	float: right;
+	margin-right: 20px;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 15px;
+	margin-top: -10px;
+	background-color: royalblue;
+	color: white;
+	border: none;
+}
+
+.downloadBtn:hover {
+	border: 2px solid royalblue;
+	background-color: white;
+	color: royalblue;
+}
+
+.source {
+	margin-left: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: royalblue;
+	font-size: 23px;
+}
+
+.innerDiv {
+	border-bottom: 1px solid royalblue;
+}

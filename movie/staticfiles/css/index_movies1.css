@@ -1,0 +1,23 @@
+#movieDiv {
+	display: inline-block;
+	margin: 7px;
+	text-align: center;
+	background-color: blue;
+	color: white;
+	width: 200px;
+	overflow: hidden;
+}
+
+#titleimg {
+	color: white;
+	text-decoration: none;
+}
+
+#movieImage {
+	width: 200px;
+	transition: transform .5s ease;
+}
+
+#movieDiv:hover #movieImage {
+	transform: scale(1.5);
+}

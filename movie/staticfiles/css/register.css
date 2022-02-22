@@ -1,0 +1,73 @@
+body {
+	width: 80%;
+}
+
+button {
+	cursor: pointer;
+}
+
+h2 {
+	color: white;
+	font-family: cursive;
+	margin-top: 50px;
+}
+
+#login {
+	margin-top: -10px;
+	text-decoration: none;
+	color: white;
+	background-color: #E26313;
+	font-size: 100%;
+	float: right;
+	margin-right: 20px;
+}
+
+button {
+	padding: 10px;
+	width: 40%;
+	border-radius: 9px;
+	font-size: 17px;
+	font-family: cursive;
+	color: white;
+	background-image: radial-gradient(circle at 119.64% 37.72%, #c9c2ff 0, #919cff 25%, #3c78f2 50%, #0059e3 75%, #0041d4 100%);
+	outline: none;
+	outline-color: white;
+}
+
+#msg {
+	font-family: cursive;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+#create {
+	margin-top: 4px;
+}
+
+#mainBody {
+	width: 40%;
+	background-color: #E26313;
+	position: absolute;
+	top: 50%;
+	left: 74%;
+	height: 80%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+#dummy {
+	position: absolute;
+	top: 50%;
+	left: 30%;
+	height: 80%;
+	transform: translate(-47%, -50%);
+}
+
+input {
+	margin-bottom: 15px;
+	padding: 10px; 
+	width: 70%;
+	border-radius: 9px;
+	outline: none;
+	font-family: cursive;
+}
