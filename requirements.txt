@@ -1,0 +1,4 @@
+python==3.7.5
+django==3.2.12
+django-allauth==0.41.0
+pillow==9.0.1
